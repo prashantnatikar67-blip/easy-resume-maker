@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create a professional resume for free. Live preview, multiple templates, and PDF download. No account required.">
+  <title>Easy Resume Maker — Free Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Easy Resume Maker home"><span class="brand-mark">ER</span><span>Easy Resume Maker</span></a>
+    <span class="privacy-note"><span class="privacy-dot"></span> Free · No login · Your details stay in this browser</span>
+  </header>
+
+  <main class="app-shell">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Create a resume that<br><span>opens doors.</span></h1>
+        <p class="intro-copy">Fill in your details, choose a style, and download a clean, professional resume as a PDF — free.</p>
+      </div>
+      <div class="intro-badge" aria-hidden="true"><span>CV</span><i>✦</i></div>
+    </section>
+
+    <nav class="step-nav" aria-label="Resume builder sections">
+      <a href="#personal"><span>01</span> Details</a>
+      <a href="#education"><span>02</span> Education</a>
+      <a href="#experience"><span>03</span> Experience</a>
+      <a href="#preview"><span>04</span> Preview & download</a>
+    </nav>
+
+    <div class="workspace">
+      <section class="editor card" aria-label="Resume details form">
+        <div class="section-heading">
+          <div><p class="eyebrow">BUILD YOUR STORY</p><h2>Your information</h2></div>
+          <button id="clearBtn" class="text-button" type="button">Clear form</button>
+        </div>
+        <p class="helper">Your entries update the preview automatically. Fields are optional — fill in what applies to you.</p>
+
+        <form id="resumeForm" autocomplete="on">
+          <fieldset id="personal">
+            <legend><span class="legend-icon">01</span> Personal details</legend>
+            <div class="form-grid">
+              <label>Full name<input name="fullName" placeholder="e.g. Prashant Natikar" autocomplete="name"></label>
+              <label>Professional title<input name="jobTitle" placeholder="e.g. Electronics Engineer"></label>
+              <label>Email<input name="email" type="email" placeholder="you@example.com" autocomplete="email"></label>
+              <label>Phone<input name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel"></label>
+              <label class="full">Location<input name="location" placeholder="City, State"></label>
+              <label class="full">Professional summary<textarea name="summary" rows="3" placeholder="Write 2–3 lines about your strengths and career goals."></textarea></label>
+            </div>
+          </fieldset>
+
+          <fieldset id="education">
+            <legend><span class="legend-icon">02</span> Education</legend>
+            <div class="form-grid">
+              <label class="full">Course / degree<input name="degree" placeholder="e.g. Diploma in Electronics and Communication"></label>
+              <label>Institution<input name="school" placeholder="College or university"></label>
+              <label>Year / duration<input name="eduYear" placeholder="e.g. 2023–2026"></label>
+              <label>Grade (optional)<input name="grade" placeholder="e.g. 8.5 CGPA or 85%"></label>
+            </div>
+          </fieldset>
+
+          <fieldset id="experience">
+            <legend><span class="legend-icon">03</span> Experience & skills</legend>
+            <div class="form-grid">
+              <label>Job title<input name="role" placeholder="e.g. Intern / Fresher"></label>
+              <label>Company<input name="company" placeholder="Company name"></label>
+              <label class="full">Experience details<textarea name="experience" rows="3" placeholder="Describe your responsibilities or achievements."></textarea></label>
+              <label class="full">Skills <span class="label-hint">Separate each skill with a comma</span><textarea name="skills" rows="2" placeholder="Communication, C programming, teamwork"></textarea></label>
+              <label class="full">Projects <span class="label-hint">Project name and a short description</span><textarea name="projects" rows="3" placeholder="Speech Recognition System — compared MFCC and LPCC features."></textarea></label>
+              <label class="full">Certifications / additional information<textarea name="extras" rows="2" placeholder="Certifications, languages, volunteering, achievements"></textarea></label>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="form-actions">
+          <button class="button button-secondary" id="exampleBtn" type="button">Load sample resume</button>
+          <button class="button button-primary" id="downloadBtn" type="button"><span>↓</span> Download PDF</button>
+        </div>
+        <p class="small-note">Tip: For best results, use short bullet-style descriptions. Your information is not uploaded to a server.</p>
+      </section>
+
+      <section class="preview-column" id="preview">
+        <div class="preview-toolbar card">
+          <div><p class="eyebrow">LIVE PREVIEW</p><h2>Your resume</h2></div>
+          <label class="template-select">Style
+            <select id="templateSelect" aria-label="Choose resume template">
+              <option value="classic">Classic</option>
+              <option value="modern">Modern</option>
+              <option value="minimal">Minimal</option>
+            </select>
+          </label>
+        </div>
+        <div class="resume-stage">
+          <article id="resumePreview" class="resume-paper template-classic" aria-label="Resume preview">
+            <header class="resume-header">
+              <h1 id="pName">Your Name</h1>
+              <p id="pTitle" class="resume-title">Your professional title</p>
+              <p id="pContact" class="contact-line">Email · Phone · City</p>
+            </header>
+            <section class="resume-section" id="summarySection"><h2>Profile</h2><p id="pSummary">Your professional summary will appear here. Highlight your strengths, interests, and career goals.</p></section>
+            <section class="resume-section" id="educationSection"><h2>Education</h2><div class="resume-item"><div class="item-top"><strong id="pDegree">Your degree or course</strong><span id="pEduYear"></span></div><p id="pSchool">Your institution</p><p id="pGrade" class="muted"></p></div></section>
+            <section class="resume-section" id="experienceSection"><h2>Experience</h2><div class="resume-item"><div class="item-top"><strong id="pRole">Your role</strong><span id="pCompany"></span></div><p id="pExperience">Add experience details, internships, or relevant activities.</p></div></section>
+            <section class="resume-section" id="skillsSection"><h2>Skills</h2><ul id="pSkills" class="skill-list"><li>Your skills will appear here</li></ul></section>
+            <section class="resume-section" id="projectsSection"><h2>Projects</h2><p id="pProjects">Your projects will appear here.</p></section>
+            <section class="resume-section" id="extrasSection"><h2>Additional information</h2><p id="pExtras">Certifications, languages, or achievements.</p></section>
+            <footer class="resume-footer">Created with Easy Resume Maker</footer>
+          </article>
+        </div>
+        <p class="preview-caption">Preview is a guide. Check the downloaded PDF before sending it to an employer.</p>
+      </section>
+    </div>
+
+    <footer class="site-footer"><span>Easy Resume Maker</span><span>Free to use · No account needed</span></footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>
